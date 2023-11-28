@@ -69,7 +69,7 @@ if int(x) == 1:
     shelf = str(random.randint(1, 5))
     volume = str(random.randint(1, 32)).zfill(2) # Pads the volume number if necessary.
     page = str(random.randint(1, 410)).zfill(3) # Pads the page number if necessary.
-    library_coordinate = int(page + volume + shelf + wall) # Randomizes the library coordinate.
+    library_coordinate = int(page + volume + shelf + wall)
 
     hexagon_address = searchByText(text, library_coordinate)
     total_address = hexagon_address + ':' + wall + ':' + shelf + ':' + volume + ':' + page
