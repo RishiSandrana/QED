@@ -47,7 +47,7 @@ def searchByText(text, library_coordinate):
         char_value = base90charset.index(v)
         sum_value += char_value * (len(base90charset) ** i) # Converts base 90 text input to base 10 number.
 
-    seed = library_coordinate * (len(base90charset)**3200) + sum_value
+    seed = library_coordinate + sum_value
     result = convertFromBase10(seed, 93) # Converts base 10 number to base 93 hex address.
     return result
 
@@ -57,7 +57,7 @@ def searchByAddress(address):
     page = page.zfill(3)
     library_coordinate = int(page + volume + shelf + wall)
 
-    seed = convertToBase10(hexagon_address) - library_coordinate * (len(base90charset)**3200) # Converts base 93 hex address to base 10 number.
+    seed = convertToBase10(hexagon_address) - library_coordinate # Converts base 93 hex address to base 10 number.
     result = convertFromBase10(seed, 90) # Converts base 10 number to base 90 text.
     return result
 
